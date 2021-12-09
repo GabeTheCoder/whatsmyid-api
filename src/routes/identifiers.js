@@ -16,7 +16,7 @@ identifiers.post('/verify', (req, res) => {
         return res.status(400).send({ code: 'invalid-identifier' });
     }
 
-    const value = id.toUpperCase().trim().replace('-', '');
+    const value = id.toUpperCase().trim().replace(/-/g, '');
     const valid = identifier.verify(value);
 
     res.status(200).send({ valid });
